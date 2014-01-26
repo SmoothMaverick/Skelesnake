@@ -1,14 +1,14 @@
-package Gui;
+package GUI;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
  
-public class TextDemo extends JPanel implements ActionListener {
+public class GUI extends JPanel implements ActionListener {
     protected JTextField textField;
     protected JTextArea textArea;
     private final static String newline = "\n";
  
-    public TextDemo() {
+    public GUI() {
         super(new GridBagLayout());
         Font font = new Font("Verdana", Font.BOLD, 12);
         
@@ -26,11 +26,8 @@ public class TextDemo extends JPanel implements ActionListener {
         textArea.setForeground(Color.WHITE);
         
 		JPanel panel1 = new JPanel();
-//		JPanel panel2 = new JPanel(); 
 		panel1.setPreferredSize(new Dimension(450,300));
-//		panel2.setPreferredSize(new Dimension(450,300));
 		panel1.setBackground(Color.yellow);
-//		panel2.setBackground(Color.white);
         
         //Add Components to this panel.
         GridBagConstraints c = new GridBagConstraints();
@@ -66,13 +63,13 @@ public class TextDemo extends JPanel implements ActionListener {
      * this method should be invoked from the
      * event dispatch thread.
      */
-    private static void createAndShowGUI() {
+    public static void createAndShowGUI() {
         //Create and set up the window.
         JFrame frame = new JFrame("TextDemo");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
  
         //Add contents to the window.
-        frame.add(new TextDemo());
+        frame.add(new GUI());
  
         //Display the window.
         frame.pack();
@@ -80,13 +77,5 @@ public class TextDemo extends JPanel implements ActionListener {
         frame.setResizable(false);
     }
  
-    public static void main(String[] args) {
-        //Schedule a job for the event dispatch thread:
-        //creating and showing this application's GUI.
-        javax.swing.SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                createAndShowGUI();
-            }
-        });
-    }
+  
 }

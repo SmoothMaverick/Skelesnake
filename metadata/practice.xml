@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<states>
+       <LIBRARY>
+              <introduction>YOU ARE NOW IN THE LIBRARY</introduction>
+              <r1>yes</r1>
+              <r2>no</r2>
+       </LIBRARY>
+       <MUB>
+              <introduction>WELCOME TO THE MUB</introduction>
+              <r1>yes</r1>
+              <r2>no</r2>
+       </MUB>
+       <CAFETERIA>
+              <introduction>WELCOME TO THE MUB</introduction>
+              <r1>yes</r1>
+              <r2>no</r2>
+       </CAFETERIA>
+       
+</states>
