@@ -48,6 +48,7 @@ public class TextDemo extends JPanel implements ActionListener {
         c.weighty = 1.0;
         add(scrollPane, c);
         add(textField, c);
+        
     }
  
     public void actionPerformed(ActionEvent evt) {
@@ -76,6 +77,7 @@ public class TextDemo extends JPanel implements ActionListener {
         //Display the window.
         frame.pack();
         frame.setVisible(true);
+        frame.setResizable(false);
     }
  
     public static void main(String[] args) {
