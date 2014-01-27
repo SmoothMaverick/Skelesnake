@@ -48,16 +48,6 @@ public class GUI extends JPanel implements ActionListener {
         
     }
  
-    public void actionPerformed(ActionEvent evt) {
-        String text = textField.getText();
-        textArea.append(text + newline);
-        textField.selectAll();
- 
-        //Make sure the new text is visible, even if there
-        //was a selection in the text area.
-        textArea.setCaretPosition(textArea.getDocument().getLength());
-    }
- 
     /**
      * Create the GUI and show it.  For thread safety,
      * this method should be invoked from the
@@ -76,6 +66,26 @@ public class GUI extends JPanel implements ActionListener {
         frame.setVisible(true);
         frame.setResizable(false);
     }
+
+    public void actionPerformed(ActionEvent evt) {
+        String text = textField.getText();
+        textArea.append(text + newline);
+        textField.selectAll();
+        textField.setText("");
+        
+        //Make sure the new text is visible, even if there
+        //was a selection in the text area.
+        textArea.setCaretPosition(textArea.getDocument().getLength());
+    }
  
-  
+    public void printTest()
+    {
+    	System.out.println("printTest()");
+    }
+    
+  public void showText(String _str)
+  {
+	  //TODO show arguments in textfield
+	  System.out.println(_str);
+  }
 }

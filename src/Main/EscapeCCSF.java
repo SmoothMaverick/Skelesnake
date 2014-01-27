@@ -15,12 +15,17 @@ public class EscapeCCSF {
 	
 	public static void main(String[] args)
 	{
+		
 		  javax.swing.SwingUtilities.invokeLater(new Runnable() {
 	            public void run() {
 	                gui.createAndShowGUI();
+	                if(gui == null)
+	                  System.out.println("gui is null");
+	               //gui.printTest();
 	            }
 	        });
 		  
+
 		IO = new TextHandler();
 		SM   = new StateManager();
 		test = new StateManager();
@@ -37,9 +42,10 @@ public class EscapeCCSF {
 	{
 		
 		SM.setCurrentState("MUB");
-		
-		
 		IO.beginState(SM.beginCurrentState());
+		//put this in SM
+		//gui.showText("hello");
 	}
+
 	
 }

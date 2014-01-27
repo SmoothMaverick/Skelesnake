@@ -19,9 +19,7 @@ public class StateManager {
 	
 	public void init()
 	{
-		stateList.add("CAFETERIA");
-		stateList.add("LIBRARY");
-		stateList.add("MUB");
+	
 	}
 	
 	public String beginCurrentState()

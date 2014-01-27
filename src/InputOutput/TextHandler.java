@@ -10,15 +10,20 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+import GUI.GUI;
+
 public class TextHandler {
 
 	private File practice;
 	private DocumentBuilderFactory dbFactory;
+	private String currentOutput;
+	
 	
 	public TextHandler()
 	{
 		practice = new File ("metadata//practice.xml");
 		dbFactory = DocumentBuilderFactory.newInstance();
+		currentOutput="";
 	}
 	
 	
@@ -40,7 +45,8 @@ public class TextHandler {
 				{
 					Element element = (Element)node;
 					if (element != null)
-					System.out.println("NameOFlocation: " + getValue("introduction", element));
+					System.out.println("NameOFlocation: " + 
+					       getValue("introduction", element));
 				}
 			}
 			
@@ -57,7 +63,10 @@ public class TextHandler {
 	
 	public void fetchCurrentState()
 	{
+		
 	}
+	
+	public String getCurrentOutput(){return currentOutput;}
 	
 	
 }
