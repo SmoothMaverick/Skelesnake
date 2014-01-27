@@ -17,7 +17,7 @@ public class TextHandler {
 	
 	public TextHandler()
 	{
-		practice = new File ("metadata\\practice.xml");
+		practice = new File ("metadata//practice.xml");
 		dbFactory = DocumentBuilderFactory.newInstance();
 	}
 	
