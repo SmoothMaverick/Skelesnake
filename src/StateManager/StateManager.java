@@ -5,15 +5,12 @@ import java.util.LinkedList;
 
 public class StateManager {
 
-	public int x;
-	public static int y;
-	
 	private LinkedList<String> stateList;
 	private String             currentState;
 	
 	public StateManager()
 	{
-	  stateList = new LinkedList();	
+	  stateList    = new LinkedList();	
 	  currentState = "CAFETERIA";
 	}
 	
@@ -29,8 +26,5 @@ public class StateManager {
 
 	
 	public void setCurrentState(String _location){ currentState = _location;}
-	//TODO 
-	
-	
-	
+	public void addState(String _location)       { stateList.add(_location);}
 }

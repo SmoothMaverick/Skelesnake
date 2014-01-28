@@ -17,19 +17,21 @@ public class TextHandler {
 	private File practice;
 	private DocumentBuilderFactory dbFactory;
 	private String currentOutput;
-	
+	private String currentState;
 	
 	public TextHandler()
 	{
-		practice = new File ("metadata//practice.xml");
-		dbFactory = DocumentBuilderFactory.newInstance();
-		currentOutput="";
+		practice      = new File ("metadata//practice.xml");
+		dbFactory     = DocumentBuilderFactory.newInstance();
+		currentOutput ="";
+		currentState  = "Cafeteria";
 	}
 	
 	
 	public void beginState(String _currentState)
 	{
-
+		currentState = _currentState;
+		
 		try {
 			DocumentBuilder dBuilder     = dbFactory.newDocumentBuilder();
 			Document        doc          = dBuilder.parse(practice);  
@@ -41,6 +43,7 @@ public class TextHandler {
 			for(int i = 0; i < nodes.getLength(); i++)
 			{
 				Node node = nodes.item(i);
+				
 				if(node.getNodeType() == Node.ELEMENT_NODE)
 				{
 					Element element = (Element)node;
@@ -65,9 +68,9 @@ public class TextHandler {
 		return node.getNodeValue();
 	}
 	
-	public void fetchCurrentState()
+	public void fetchCurrentState(String _current)
 	{
-		
+		currentState = _current;
 	}
 	
 	public String getCurrentOutput(){return currentOutput;}
