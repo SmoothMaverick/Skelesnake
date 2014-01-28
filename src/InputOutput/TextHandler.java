@@ -45,8 +45,12 @@ public class TextHandler {
 				{
 					Element element = (Element)node;
 					if (element != null)
-					System.out.println("NameOFlocation: " + 
-					       getValue("introduction", element));
+					{
+						System.out.println("NameOFlocation: " + 
+							       getValue("introduction", element));
+						currentOutput = getValue("introduction", element);
+					}
+					
 				}
 			}
 			

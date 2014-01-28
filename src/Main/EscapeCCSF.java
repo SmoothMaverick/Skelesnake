@@ -17,20 +17,18 @@ public class EscapeCCSF {
 	{
 		
 		  javax.swing.SwingUtilities.invokeLater(new Runnable() {
-	            public void run() {
-	                gui.createAndShowGUI();
-	                if(gui == null)
-	                  System.out.println("gui is null");
-	               //gui.printTest();
-	            }
+	      public void run() {
+            gui = new GUI();
+               
+       		IO   = new TextHandler();
+    		SM   = new StateManager();
+    		test = new StateManager();
+    		init();
+    		play();
+	               
+	          }
 	        });
-		  
 
-		IO = new TextHandler();
-		SM   = new StateManager();
-		test = new StateManager();
-		init();
-		play();
 	}
 	
 	public static void init()
@@ -44,7 +42,7 @@ public class EscapeCCSF {
 		SM.setCurrentState("MUB");
 		IO.beginState(SM.beginCurrentState());
 		//put this in SM
-		//gui.showText("hello");
+		gui.showText(IO.getCurrentOutput());
 	}
 
 	

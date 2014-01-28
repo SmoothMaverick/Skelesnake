@@ -10,6 +10,9 @@ public class GUI extends JPanel implements ActionListener {
  
     public GUI() {
         super(new GridBagLayout());
+        
+      
+        
         Font font = new Font("Verdana", Font.BOLD, 12);
         
         textField = new JTextField(20);
@@ -46,6 +49,22 @@ public class GUI extends JPanel implements ActionListener {
         add(scrollPane, c);
         add(textField, c);
         
+        
+        
+        
+        //Create and set up the window.
+        JFrame frame = new JFrame("TextDemo");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+ 
+        //Add contents to the window.
+        frame.add(this);
+ 
+        //Display the window.
+        frame.pack();
+        frame.setVisible(true);
+        frame.setResizable(false);
+        
+        
     }
  
     /**
@@ -77,15 +96,10 @@ public class GUI extends JPanel implements ActionListener {
         //was a selection in the text area.
         textArea.setCaretPosition(textArea.getDocument().getLength());
     }
- 
-    public void printTest()
-    {
-    	System.out.println("printTest()");
-    }
+
     
   public void showText(String _str)
   {
-	  //TODO show arguments in textfield
-	  System.out.println(_str);
+	  textArea.append(_str + newline);
   }
 }
