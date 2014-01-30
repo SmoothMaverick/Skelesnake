@@ -8,9 +8,7 @@ import GUI.GUI;
 
 public class EscapeCCSF {
 	
-	public static TextHandler  IO;
 	public static StateManager SM;
-	public static StateManager test;
 	public static GUI          gui;
 	
 	public static void main(String[] args)
@@ -19,15 +17,12 @@ public class EscapeCCSF {
 		  javax.swing.SwingUtilities.invokeLater(new Runnable() {
 	      public void run() {
             gui = new GUI();
-               
-       		IO   = new TextHandler();
-    		SM   = new StateManager();
-    		test = new StateManager();
+            //gui.showText("showTest()");
+    		SM   = new StateManager(gui);
     		init();
     		play();
-	               
-	          }
-	        });
+	       }
+	      });
 
 	}
 	
@@ -38,12 +33,8 @@ public class EscapeCCSF {
 	
 	public static void play()
 	{
-		
-		SM.setCurrentState("MUB");
-		IO.beginState(SM.beginCurrentState());
-		//put this in SM
-		gui.showText(IO.getCurrentOutput());
+		SM.setCurrentState("LIBRARY");
+		SM.play();
 	}
 
-	
 }

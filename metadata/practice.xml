@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <states>
-       <LIBRARY>
-              <introduction>YOU ARE NOW IN THE LIBRARY</introduction>
-              <r1>yes</r1>
-              <r2>no</r2>
-       </LIBRARY>
-       <MUB>
-              <introduction>WELCOME TO THE MUB</introduction>
-              <r1>yes</r1>
-              <r2>no</r2>
-       </MUB>
+
        <CAFETERIA>
-              <introduction>WELCOME TO THE MUB</introduction>
+              <introduction>YOU WAKE UP CAFETERIA</introduction>
               <r1>yes</r1>
               <r2>no</r2>
        </CAFETERIA>
+       <LIBRARY>
+              <introduction>LOOK AT ALL THESE BOOKS IN THE LIBRARY</introduction>
+              <r1>yes</r1> 
+              <r2>no</r2>
+       </LIBRARY>
+       <MUB>
+              <introduction>THERE IS A LOT OF FUN STUFF IN THE MUB</introduction>
+              <r1>yes</r1>
+              <r2>no</r2>
+       </MUB>
+
        
 </states>

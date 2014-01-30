@@ -11,8 +11,6 @@ public class GUI extends JPanel implements ActionListener {
     public GUI() {
         super(new GridBagLayout());
         
-      
-        
         Font font = new Font("Verdana", Font.BOLD, 12);
         
         textField = new JTextField(20);

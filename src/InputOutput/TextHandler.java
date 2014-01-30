@@ -14,21 +14,28 @@ import GUI.GUI;
 
 public class TextHandler {
 
-	private File practice;
 	private DocumentBuilderFactory dbFactory;
-	private String currentOutput;
-	private String currentState;
 	
-	public TextHandler()
+	private File    practice;
+	private Element stateElement;
+	private GUI     gui;
+	private String  currentOutput,currentInput;
+	private String  currentState,childElement;
+	
+	
+	public TextHandler(GUI _gui)
 	{
+		gui           = _gui;
 		practice      = new File ("metadata//practice.xml");
 		dbFactory     = DocumentBuilderFactory.newInstance();
-		currentOutput ="";
+		currentOutput = "";
+		currentInput  = "";
 		currentState  = "Cafeteria";
+		childElement  = "introduction";
 	}
 	
 	
-	public void beginState(String _currentState)
+	public void fetchAndDisplayText(String _currentState)
 	{
 		currentState = _currentState;
 		
@@ -37,21 +44,18 @@ public class TextHandler {
 			Document        doc          = dBuilder.parse(practice);  
 			
 			doc.getDocumentElement().normalize();
-			NodeList nodes = doc.getElementsByTagName(_currentState); //find current Location
-
-		
+			NodeList nodes = doc.getElementsByTagName(_currentState); //find current Location element
+			
 			for(int i = 0; i < nodes.getLength(); i++)
 			{
-				Node node = nodes.item(i);
-				
+				Node node = nodes.item(i); //saves all children from location element
 				if(node.getNodeType() == Node.ELEMENT_NODE)
 				{
-					Element element = (Element)node;
-					if (element != null)
-					{
-						System.out.println("NameOFlocation: " + 
-							       getValue("introduction", element));
-						currentOutput = getValue("introduction", element);
+				    stateElement = (Element)node;
+					if (stateElement != null)
+					{	
+						currentOutput = getValue(childElement, stateElement);
+						displayText();
 					}
 					
 				}
@@ -60,11 +64,12 @@ public class TextHandler {
 		} catch (Exception e) {e.printStackTrace();}
 	}
 	
-	
+	//returns specific node value from an elementObject
 	public static String getValue(String tagName, Element element)
 	{
 		NodeList nodes = element.getElementsByTagName(tagName).item(0).getChildNodes();
-		Node node = (Node)nodes.item(0);
+		Node node      = (Node)nodes.item(0);
+		
 		return node.getNodeValue();
 	}
 	
@@ -72,8 +77,17 @@ public class TextHandler {
 	{
 		currentState = _current;
 	}
-	
+	 
+	public void getClientInput(String _str){currentInput = _str;}
 	public String getCurrentOutput(){return currentOutput;}
+	public void   setChildElement(String _str){childElement=_str;}
 	
+	private void displayText()
+	{
+	   gui.showText(currentOutput);
+	}
 	
 }
+	
+	
+
