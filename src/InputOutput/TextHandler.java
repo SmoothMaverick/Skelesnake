@@ -77,7 +77,13 @@ public class TextHandler {
 	{
 		currentState = _current;
 	}
-	 
+	
+	public void   errorMessage() { gui.showText("I don't understand, please use only listed "+
+												 "commands\nfor a list of recognized commands "+
+												  "type: get help");}
+	public void   errorMessageVerb(String _str){gui.showText("I don't know how to "+ _str + " something.");}
+	public void   errorMessageNoun(String _str0, String _str1){gui.showText("I can't "+ _str0 + " the " + _str1 + ".");}
+	
 	public void   getClientInput(String _str)  {currentInput = _str;}
 	public String getCurrentOutput()           {return currentOutput;}
 	public void   setChildElement(String _str) {childElement=_str;}

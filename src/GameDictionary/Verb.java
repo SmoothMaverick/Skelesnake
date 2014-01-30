@@ -8,4 +8,9 @@ public class Verb {
 	{
 		name = _name;
 	}
+	
+	public String getName()
+	{
+		return name;
+	}
 }

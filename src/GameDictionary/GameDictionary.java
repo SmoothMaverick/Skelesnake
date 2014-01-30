@@ -4,8 +4,8 @@ import java.util.LinkedList;
 
 public class GameDictionary {
 	
-	LinkedList<Noun> nounsList;
-	LinkedList<Verb> verbsList;
+	public LinkedList<Noun> nounsList;
+	public LinkedList<Verb> verbsList;
 	
 	public GameDictionary()
 	{
@@ -27,5 +27,27 @@ public class GameDictionary {
 		verbsList.add(new Verb("open"));
 	}
 	
+	public boolean searchVerbs(String _str)
+	{
+		for(int i=0; i< verbsList.size();i++)
+		{
+			if(verbsList.get(i).getName().equalsIgnoreCase(_str))
+			{
+				return true;
+			}
+		}
+		return false;
+	}
 	
+	public boolean searchNouns(String _str)
+	{
+		for(int i=0; i< nounsList.size();i++)
+		{
+			if(nounsList.get(i).getName().equalsIgnoreCase(_str))
+			{
+				return true;
+			}
+		}
+		return false;
+	}
 }

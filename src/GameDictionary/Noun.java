@@ -9,4 +9,8 @@ public class Noun {
 		name = _name;
 	}
 	
+	public String getName()
+	{
+		return name;
+	}
 }

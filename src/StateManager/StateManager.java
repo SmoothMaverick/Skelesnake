@@ -45,6 +45,20 @@ public class StateManager {
 	private void parseInput()
 	{
 		String[] activeInput = playerInput.split("\\s+");
+		
+		if(activeInput.length <= 2)
+		{
+			if(!GD.searchVerbs(activeInput[0]))
+			{
+				IO.errorMessageVerb(activeInput[0]);
+				return;
+			}
+			else if(!GD.searchNouns(activeInput[1]))
+			{
+				IO.errorMessageNoun(activeInput[0], activeInput[1]);
+			}
+		}
+		else {IO.errorMessage();}
 	}
 	
 	//the manager can parse input from gui
