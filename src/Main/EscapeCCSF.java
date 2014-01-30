@@ -13,17 +13,14 @@ public class EscapeCCSF {
 	
 	public static void main(String[] args)
 	{
-		
 		  javax.swing.SwingUtilities.invokeLater(new Runnable() {
 	      public void run() {
             gui = new GUI();
-            //gui.showText("showTest()");
-    		SM   = new StateManager(gui);
+    		SM   = gui.getStateManager();
     		init();
     		play();
 	       }
 	      });
-
 	}
 	
 	public static void init()

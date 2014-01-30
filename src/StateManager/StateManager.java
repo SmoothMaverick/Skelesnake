@@ -38,6 +38,7 @@ public class StateManager {
 		 IO.fetchAndDisplayText(currentState);
 	}
 
+	public void getPlayerInput(String _str){ System.out.println(_str);}
 	public void setCurrentState(String _location){ currentState = _location;}
 	public void addState(String _location)       { stateList.add(_location);}
 }
