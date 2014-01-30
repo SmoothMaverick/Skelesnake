@@ -78,9 +78,9 @@ public class TextHandler {
 		currentState = _current;
 	}
 	 
-	public void getClientInput(String _str){currentInput = _str;}
-	public String getCurrentOutput(){return currentOutput;}
-	public void   setChildElement(String _str){childElement=_str;}
+	public void   getClientInput(String _str)  {currentInput = _str;}
+	public String getCurrentOutput()           {return currentOutput;}
+	public void   setChildElement(String _str) {childElement=_str;}
 	
 	private void displayText()
 	{
