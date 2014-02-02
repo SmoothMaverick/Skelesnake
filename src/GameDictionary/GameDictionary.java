@@ -51,9 +51,10 @@ public class GameDictionary {
 		return false;
 	}
 	
-	public String getVerb(int i){ return verbsList.get(i).getName();}
-	public String getNoun(int i){ return nounsList.get(i).getName();}
-	
+	public String getVerb(int i)  { return verbsList.get(i).getName();}
+	public int    getVerbLength() { return verbsList.size();}
+	public String getNoun(int i)  { return nounsList.get(i).getName();}
+	public int    getNounLength() { return nounsList.size();}
 }
 
 

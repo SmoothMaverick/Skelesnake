@@ -63,7 +63,7 @@ public class StateManager {
 				return;
 			}
 			
-			//move
+			//movement
 			if( activeInput[0].equalsIgnoreCase( GD.getVerb(0))  || activeInput[0].equalsIgnoreCase( GD.getVerb(1)))
 			{	
 				if(GD.searchNouns(activeInput[1]))
@@ -78,11 +78,18 @@ public class StateManager {
 				    	IO.errorMessage("Cannot go " + activeInput[1]);
 				}
 			}
+			//TODO logic for other verbs here-check which are 'Noun-able';
 			if( activeInput[0].equalsIgnoreCase( GD.getVerb(2))){System.out.println(activeInput[0]);}
 			if( activeInput[0].equalsIgnoreCase( GD.getVerb(3))){System.out.println(activeInput[0]);}
 			if( activeInput[0].equalsIgnoreCase( GD.getVerb(4))){System.out.println(activeInput[0]);}
 			
 			
+		}
+		else if(activeInput[0].equalsIgnoreCase("help"))
+		{
+			IO.errorMessage("ACTIVE COMMANDS: ");
+			for(int i=0; i< GD.getVerbLength();i++)
+				IO.errorMessage(GD.getVerb(i));
 		}
 		else {IO.errorMessage("Please use exactly two arguments.");}
 	}

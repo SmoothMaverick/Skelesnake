@@ -21,6 +21,7 @@ public class TextHandler {
 	private GUI     gui;
 	private String  currentOutput,currentInput;
 	private String  currentState,childElement;
+	private final String SPACE_BUFFER="               ";
 	
 	
 	public TextHandler(GUI _gui)
@@ -99,7 +100,7 @@ public class TextHandler {
 		fetchAndDisplayText(currentState);
 	}
 	
-	public void   errorMessage(String _str)     {gui.showText(_str); }
+	public void   errorMessage(String _str)     {gui.showText(SPACE_BUFFER +_str); }
 	public void   errorMessageVerb(String _str) {gui.showText("I don't know how to "+ _str + " something.");}
 	public void   errorMessageNoun(String _str0, String _str1){gui.showText("I can't "+ _str0 + " the " + _str1 + ".");}
 	
