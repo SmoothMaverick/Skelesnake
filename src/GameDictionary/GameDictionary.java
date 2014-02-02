@@ -50,4 +50,10 @@ public class GameDictionary {
 		}
 		return false;
 	}
+	
+	public String getVerb(int i){ return verbsList.get(i).getName();}
+	public String getNoun(int i){ return nounsList.get(i).getName();}
+	
 }
+
+

@@ -39,15 +39,17 @@ public class StateManager {
 	
 	private void beginCurrentState()
 	{
-		 IO.fetchAndDisplayText(currentState);
+		if(!IO.getCurrentState().equalsIgnoreCase(currentState))
+		    IO.fetchAndDisplayText(currentState);
 	}
 
 	private void parseInput()
 	{
 		String[] activeInput = playerInput.split("\\s+");
 		
-		if(activeInput.length <= 2)
+		if(activeInput.length == 2)
 		{
+			//catch unrecognized args
 			if(!GD.searchVerbs(activeInput[0]))
 			{
 				IO.errorMessageVerb(activeInput[0]);
@@ -56,9 +58,31 @@ public class StateManager {
 			else if(!GD.searchNouns(activeInput[1]))
 			{
 				IO.errorMessageNoun(activeInput[0], activeInput[1]);
+				return;
 			}
+			
+			//move
+			if( activeInput[0].equalsIgnoreCase( GD.getVerb(0))  || activeInput[0].equalsIgnoreCase( GD.getVerb(1)))
+			{	
+				if(GD.searchNouns(activeInput[1]))
+				{  
+				    IO.setParentToChild(activeInput[1]);
+				    if(!currentState.equalsIgnoreCase(IO.getCurrentState()))
+				    {
+				    	IO.fetchAndDisplayCurrentStateText();
+				    	currentState = IO.getCurrentState();
+				    }
+				    else
+				    	IO.errorMessage("Cannot go " + activeInput[1]);
+				}
+			}
+			if( activeInput[0].equalsIgnoreCase( GD.getVerb(2))){System.out.println(activeInput[0]);}
+			if( activeInput[0].equalsIgnoreCase( GD.getVerb(3))){System.out.println(activeInput[0]);}
+			if( activeInput[0].equalsIgnoreCase( GD.getVerb(4))){System.out.println(activeInput[0]);}
+			
+			
 		}
-		else {IO.errorMessage();}
+		else {IO.errorMessage("Please use exactly two arguments.");}
 	}
 	
 	//the manager can parse input from gui

@@ -44,7 +44,7 @@ public class TextHandler {
 			Document        doc          = dBuilder.parse(practice);  
 			
 			doc.getDocumentElement().normalize();
-			NodeList nodes = doc.getElementsByTagName(_currentState); //find current Location element
+			NodeList nodes = doc.getElementsByTagName(currentState); //find current Location element
 			
 			for(int i = 0; i < nodes.getLength(); i++)
 			{
@@ -78,20 +78,36 @@ public class TextHandler {
 		currentState = _current;
 	}
 	
-	public void   errorMessage() { gui.showText("I don't understand, please use only listed "+
+	public void   errorMessage() { gui.showText("I don't understand, please use only listed "  +
 												 "commands\nfor a list of recognized commands "+
-												  "type: get help");}
-	public void   errorMessageVerb(String _str){gui.showText("I don't know how to "+ _str + " something.");}
-	public void   errorMessageNoun(String _str0, String _str1){gui.showText("I can't "+ _str0 + " the " + _str1 + ".");}
-	
-	public void   getClientInput(String _str)  {currentInput = _str;}
-	public String getCurrentOutput()           {return currentOutput;}
-	public void   setChildElement(String _str) {childElement=_str;}
+												 "type: get help");}
 	
 	private void displayText()
 	{
 	   gui.showText(currentOutput);
 	}
+	
+	//To move
+	public void setParentToChild(String _child)
+	{
+		currentState = getValue(_child, stateElement);
+	}
+	
+	public void fetchAndDisplayCurrentStateText()
+	{
+		if(currentState != null && currentState != "")
+		fetchAndDisplayText(currentState);
+	}
+	
+	public void   errorMessage(String _str)     {gui.showText(_str); }
+	public void   errorMessageVerb(String _str) {gui.showText("I don't know how to "+ _str + " something.");}
+	public void   errorMessageNoun(String _str0, String _str1){gui.showText("I can't "+ _str0 + " the " + _str1 + ".");}
+	
+    
+	public void   getClientInput(String _str)  {currentInput = _str; }
+	public String getCurrentOutput()           {return currentOutput;}
+	public String getCurrentState()            {return currentState; }
+	
 	
 }
 	

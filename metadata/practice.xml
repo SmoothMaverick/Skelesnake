@@ -5,17 +5,27 @@
               <introduction>YOU WAKE UP CAFETERIA</introduction>
               <r1>yes</r1>
               <r2>no</r2>
+              <north>LIBRARY</north>
+              <south>MUB</south>
+              <east>CAFETERIA</east>
+              <west>CAFETERIA</west>
        </CAFETERIA>
        <LIBRARY>
               <introduction>LOOK AT ALL THESE BOOKS IN THE LIBRARY</introduction>
               <r1>yes</r1> 
               <r2>no</r2>
+              <north>LIBRARY</north>
+              <south>CAFETERIA</south>
+              <east>LIBRARY</east>
+              <west>LIBRARY</west>
        </LIBRARY>
        <MUB>
               <introduction>THERE IS A LOT OF FUN STUFF IN THE MUB</introduction>
               <r1>yes</r1>
               <r2>no</r2>
+              <north>CAFETERIA</north>
+              <south>MUB</south>
+              <east>MUB</east>
+              <west>MUB</west>
        </MUB>
-
-       
 </states>
