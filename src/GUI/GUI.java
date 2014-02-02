@@ -20,22 +20,31 @@ public class GUI extends JPanel implements ActionListener {
         Font font = new Font("Verdana", Font.BOLD, 12);
         input     = "";
         
-        textField = new JTextField(20);
+         textArea  = new JTextArea(35, 20);
+        // textArea  = new JTextArea(10, 20);
+         textArea.setEditable(false);
+ 		 textArea.setBackground(Color.black);
+         JScrollPane scrollPane = new JScrollPane(textArea);
+         textArea.setFont(font);
+         textArea.setForeground(Color.WHITE);
+        
+        textField = new JTextField(50);
         textField.setBackground(Color.black);
         textField.addActionListener(this);
         textField.setFont(font);
         textField.setForeground(Color.WHITE);
+      //  textField.setPreferredSize(new Dimension(10,30));
  
-        textArea  = new JTextArea(10, 20);
-        textArea.setEditable(false);
-		textArea.setBackground(Color.black);
-        JScrollPane scrollPane = new JScrollPane(textArea);
-        textArea.setFont(font);
-        textArea.setForeground(Color.WHITE);
         
+       
+        
+        /*  JPANEL
 		JPanel panel1 = new JPanel();
 		panel1.setPreferredSize(new Dimension(450,300));
+		panel1.setPreferredSize(new Dimension(450,50));
 		panel1.setBackground(Color.yellow);
+        
+        */
         
         //Add Components to this panel.
         GridBagConstraints c  = new GridBagConstraints();
@@ -46,7 +55,7 @@ public class GUI extends JPanel implements ActionListener {
         c.fill  = GridBagConstraints.HORIZONTAL;
         cy.fill = GridBagConstraints.VERTICAL;
 
-        add(panel1,cy);
+       // add(panel1,cy);
  
         c.fill    = GridBagConstraints.BOTH;
         c.weightx = 1.0;

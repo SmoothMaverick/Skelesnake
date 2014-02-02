@@ -2,7 +2,9 @@
 <states>
 
        <CAFETERIA>
-              <introduction>YOU WAKE UP CAFETERIA</introduction>
+              <introduction>
+               The cafeteria...
+              </introduction>
               <r1>yes</r1>
               <r2>no</r2>
               <north>LIBRARY</north>
@@ -11,7 +13,15 @@
               <west>CAFETERIA</west>
        </CAFETERIA>
        <LIBRARY>
-              <introduction>LOOK AT ALL THESE BOOKS IN THE LIBRARY</introduction>
+              <introduction>
+               You wake up alone in the Cafeteria.
+               It's dark.
+               Moonlight creeps in through the old gaping double
+               windows across the narrow hallway. 
+               You must have over slept; hidden from vision
+               in the corner of one of the vast hallways the
+               CCSF staff must have assumed everyone cleared out.
+              </introduction>
               <r1>yes</r1> 
               <r2>no</r2>
               <north>LIBRARY</north>
@@ -20,7 +30,12 @@
               <west>LIBRARY</west>
        </LIBRARY>
        <MUB>
-              <introduction>THERE IS A LOT OF FUN STUFF IN THE MUB</introduction>
+              <introduction>
+               The lights outside the parking lot are flickering irradically.
+               The fog makes it difficult to make out objects in the distance,
+               though you swear you can see someone next to the parking meter
+               rocking casually back-and-forth...
+              </introduction>
               <r1>yes</r1>
               <r2>no</r2>
               <north>CAFETERIA</north>

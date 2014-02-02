@@ -34,6 +34,8 @@ public class StateManager {
 	
 	public void play()
 	{
+		IO.errorMessage("                                                             ------ESCAPE CCSF!------");
+		IO.errorMessage("");
 		beginCurrentState();
 	}
 	
