@@ -3,6 +3,7 @@ package GameDictionary;
 public class Verb {
 
 	String name;
+	String type;
 	
 	public Verb(String _name)
 	{

@@ -88,6 +88,13 @@ public class TextHandler {
 	   gui.showText(currentOutput);
 	}
 	
+	public void displayText(String _str)
+	{
+		gui.showText(SPACE_BUFFER + _str);
+	}
+	
+	
+	
 	//To move
 	public void setParentToChild(String _child)
 	{

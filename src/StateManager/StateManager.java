@@ -49,48 +49,62 @@ public class StateManager {
 	{
 		String[] activeInput = playerInput.split("\\s+");
 		
+		//set the index in the Dictionary(bookmark)
+		 GD.setVerbIndex(GD.searchVerb(activeInput[0]));
+		 GD.setNounIndex(GD.searchNoun(activeInput[1]));
+		 
 		if(activeInput.length == 2)
 		{
 			//catch unrecognized args
-			if(!GD.searchVerbs(activeInput[0]))
+			if(!GD.hasVerb(activeInput[0]))
 			{
 				IO.errorMessageVerb(activeInput[0]);
 				return;
 			}
-			else if(!GD.searchNouns(activeInput[1]))
+			else if(!GD.hasNoun(activeInput[1]))
 			{
 				IO.errorMessageNoun(activeInput[0], activeInput[1]);
 				return;
 			}
-			
-			//movement
-			if( activeInput[0].equalsIgnoreCase( GD.getVerb(0))  || activeInput[0].equalsIgnoreCase( GD.getVerb(1)))
+
+			 //movement
+			 if(GD.getActiveVerb().equalsIgnoreCase("go") || GD.getActiveVerb().equalsIgnoreCase("move"))
+			 {
+				 if(GD.hasNoun(activeInput[1]))
+					{  
+					    IO.setParentToChild(activeInput[1]);
+					    if(!currentState.equalsIgnoreCase(IO.getCurrentState()))
+					    {
+					    	IO.fetchAndDisplayCurrentStateText();
+					    	currentState = IO.getCurrentState();
+					    }
+					    else
+					    	IO.errorMessage("Cannot go " + activeInput[1]);
+					}
+			 }
+			 
+			//TODO logic for other verbs here-check which are 'Noun-able';
+			//INSPECT needs a ITEMOBJECT
+			if( GD.getActiveVerb().equalsIgnoreCase("inspect") )
 			{	
-				if(GD.searchNouns(activeInput[1]))
-				{  
-				    IO.setParentToChild(activeInput[1]);
-				    if(!currentState.equalsIgnoreCase(IO.getCurrentState()))
-				    {
-				    	IO.fetchAndDisplayCurrentStateText();
-				    	currentState = IO.getCurrentState();
-				    }
-				    else
-				    	IO.errorMessage("Cannot go " + activeInput[1]);
+				if(GD.getActiveNoun().equalsIgnoreCase("backpack"))
+				{
+					System.out.println("xxx");
+					for(int i =0; i< GD.getNounLength();i++)
+					{
+						IO.displayText(GD.getNoun(i));
+						System.out.println(GD.getNoun(i));
+					}
 				}
 			}
-			//TODO logic for other verbs here-check which are 'Noun-able';
-			
-			//INSPECT needs a nounOBJECT
-			if( activeInput[0].equalsIgnoreCase( GD.getVerb(2))){System.out.println(activeInput[0]);}
 			
 			//TAKE needs an ITEM
-			if( activeInput[0].equalsIgnoreCase( GD.getVerb(3))){System.out.println(activeInput[0]);}
+			if(GD.getActiveVerb().equalsIgnoreCase("take")){System.out.println(activeInput[0]); }
 			//OPEN needs a DOOROBJECT
-			if( activeInput[0].equalsIgnoreCase( GD.getVerb(4))){System.out.println(activeInput[0]);}
+			if(GD.getActiveVerb().equalsIgnoreCase("open") ){System.out.println(activeInput[0]);}
 			//USE  needs a PERISHABLEOBJECT
-			if( activeInput[0].equalsIgnoreCase( GD.getVerb(4))){System.out.println(activeInput[0]);}
-			
-			
+			if(GD.getActiveVerb().equalsIgnoreCase("use") ){System.out.println(activeInput[0]); }
+
 		}
 		//HELP COMMAND
 		else if(activeInput[0].equalsIgnoreCase("help"))
@@ -103,12 +117,15 @@ public class StateManager {
 		//
 		// else if (activeInput[0].equalsIgnoreCase("rotate"){gui.rotate(int angle);}
 		//
-		////
-		else {IO.errorMessage("Please use exactly two arguments.");}
+		////  
+		 
+		else {IO.errorMessage("Please use exactly two arguments.");} 
 	}
 	
+	
+	
 	//the manager can parse input from gui
-	public void getPlayerInput(String _str)      { playerInput = _str; parseInput();}
+	public void getPlayerInput(String _str)      { playerInput  = _str; parseInput();}
 	public void setCurrentState(String _location){ currentState = _location;}
 	public void addState(String _location)       { stateList.add(_location);}
 }
