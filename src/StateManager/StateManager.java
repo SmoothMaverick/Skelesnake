@@ -79,18 +79,31 @@ public class StateManager {
 				}
 			}
 			//TODO logic for other verbs here-check which are 'Noun-able';
+			
+			//INSPECT needs a nounOBJECT
 			if( activeInput[0].equalsIgnoreCase( GD.getVerb(2))){System.out.println(activeInput[0]);}
+			
+			//TAKE needs an ITEM
 			if( activeInput[0].equalsIgnoreCase( GD.getVerb(3))){System.out.println(activeInput[0]);}
+			//OPEN needs a DOOROBJECT
+			if( activeInput[0].equalsIgnoreCase( GD.getVerb(4))){System.out.println(activeInput[0]);}
+			//USE  needs a PERISHABLEOBJECT
 			if( activeInput[0].equalsIgnoreCase( GD.getVerb(4))){System.out.println(activeInput[0]);}
 			
 			
 		}
+		//HELP COMMAND
 		else if(activeInput[0].equalsIgnoreCase("help"))
 		{
 			IO.errorMessage("ACTIVE COMMANDS: ");
 			for(int i=0; i< GD.getVerbLength();i++)
 				IO.errorMessage(GD.getVerb(i));
 		}
+		//OTHER NON-GAME SPECIFIC COMMANDS-resizing, closing, panel addition, rotation, etc.
+		//
+		// else if (activeInput[0].equalsIgnoreCase("rotate"){gui.rotate(int angle);}
+		//
+		////
 		else {IO.errorMessage("Please use exactly two arguments.");}
 	}
 	

@@ -25,6 +25,7 @@ public class GameDictionary {
 		verbsList.add(new Verb("inspect"));
 		verbsList.add(new Verb("take"));
 		verbsList.add(new Verb("open"));
+		verbsList.add(new Verb("use"));
 	}
 	
 	public boolean searchVerbs(String _str)

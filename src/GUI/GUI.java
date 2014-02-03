@@ -156,7 +156,7 @@ public class GUI extends JPanel implements ActionListener {
         repaint();
     }
     
-    //Move to game dictionary?
+    //Move to game dictionary? NO- STATEMANAGER: dictionary only holds words
 	public String execute(String userInput) {
 		String output = "";
 		if(userInput.equals("p on")) {
@@ -176,7 +176,7 @@ public class GUI extends JPanel implements ActionListener {
     
     public void actionPerformed(ActionEvent evt) {
         input = textField.getText().toString();
-        textArea.append(input + execute(input) + newline);
+        textArea.append(input + execute(input) + newline); //handle the 'execute' call in the manager
         textField.selectAll();
         textField.setText("");
         //callback method

@@ -52,7 +52,7 @@ public class TextHandler {
 				Node node = nodes.item(i); //saves all children from location element
 				if(node.getNodeType() == Node.ELEMENT_NODE)
 				{
-				    stateElement = (Element)node;
+				    stateElement      = (Element)node;
 					if (stateElement != null)
 					{	
 						currentOutput = getValue(childElement, stateElement);
